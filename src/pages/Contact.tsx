@@ -6,7 +6,6 @@ import { toast } from "sonner";
 import emailjs from '@emailjs/browser';
 import { useState } from 'react';
 
-emailjs.init("dKJYSEXueS-sux9fi"); 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -17,10 +16,10 @@ const Contact = () => {
 
     try {
       await emailjs.sendForm(
-        'service_qgmsmgf',
-        'template_3qacv07', 
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
         form,
-        'dKJYSEXueS-sux9fi' 
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       toast("Message Sent!", {
