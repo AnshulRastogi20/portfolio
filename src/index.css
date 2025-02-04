@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 142 29% 25%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 143 31% 42%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 143 31% 63%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 29% 25%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 142 35% 25%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 143 30% 30%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 143 25% 35%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142 30% 30%;
+  }
+}
+
+@layer components {
+  .btn-3d {
+    @apply relative overflow-hidden transition-all duration-300 
+           before:absolute before:inset-0 
+           before:bg-gradient-to-r before:from-white/20 before:to-transparent 
+           before:transition-all before:duration-300
+           hover:before:opacity-0 
+           active:transform active:scale-95
+           shadow-[0_4px_0_0_rgba(0,0,0,0.2)]
+           active:shadow-[0_2px_0_0_rgba(0,0,0,0.2)]
+           active:translate-y-[2px];
+  }
+
+  .button-gradient {
+    @apply relative overflow-hidden
+           bg-gradient-to-br from-primary to-secondary
+           dark:from-primary dark:to-secondary
+           hover:from-secondary hover:to-primary
+           dark:hover:from-secondary dark:hover:to-primary
+           transition-all duration-300
+           transform hover:-translate-y-1 hover:shadow-lg;
+  }
+}
+
+@keyframes rainbow-bg {
+  0% { background: #ff0000; }
+  17% { background: #ff8000; }
+  33% { background: #ffff00; }
+  50% { background: #00ff00; }
+  67% { background: #0000ff; }
+  83% { background: #8000ff; }
+  100% { background: #ff0000; }
+}
+
+.glass {
+  @apply bg-white/10 backdrop-blur-lg border border-white/20 
+         dark:bg-dark/30 dark:border-primary/20;
+}
+
+.card-gradient {
+  @apply bg-gradient-to-br from-light to-white dark:from-dark dark:to-dark-card;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent 
+         dark:from-primary dark:via-secondary dark:to-accent;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.section-padding {
+  @apply py-20 px-4 md:px-8 lg:px-16;
+}
