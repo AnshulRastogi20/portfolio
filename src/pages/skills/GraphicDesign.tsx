@@ -17,7 +17,7 @@ interface Project {
   beforeImage: string;
   afterImage: string;
   demoLink: string;
-  behanceLink: string;
+  canvaLink: string;
 }
 
 const GraphicDesign = () => {

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Video, Palette } from "lucide-react";
+import YouTubePlayer from './YouTubePlayer';
 
 interface ProjectDetailProps {
   project: {
@@ -17,7 +18,7 @@ interface ProjectDetailProps {
     demoLink: string;
     githubLink?: string;
     projectLink?: string;
-    behanceLink?: string;
+    canvaLink?: string;
   };
   category: "web" | "video" | "design";
 }
@@ -65,15 +66,15 @@ const ProjectDetail = ({ project, category }: ProjectDetailProps) => {
             <Button asChild variant="default" className="button-gradient">
               <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                 <Palette size={16} />
-                View Design
+                View Designs
               </a>
             </Button>
-            <Button asChild variant="outline">
-              <a href={project.behanceLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+            {/* <Button asChild variant="outline">
+              <a href={project.canvaLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                 <ExternalLink size={16} />
-                Behance
+                Canva
               </a>
-            </Button>
+            </Button> */}
           </>
         );
     }
@@ -137,13 +138,13 @@ const ProjectDetail = ({ project, category }: ProjectDetailProps) => {
               {category === 'video' ? (
                 <>
                   <div>
-                    <h3 className="text-sm text-gray-500 dark:text-gray-400 mb-2">Before</h3>
-                    <video src={project.beforeVideo} controls className="rounded-lg w-full" />
+                    {/* <h3 className="text-sm text-gray-500 dark:text-gray-400 mb-2">Before</h3> */}
+                    <YouTubePlayer videoUrl={project.beforeVideo} className="rounded-lg overflow-hidden" />
                   </div>
-                  <div>
+                  {/* <div>
                     <h3 className="text-sm text-gray-500 dark:text-gray-400 mb-2">After</h3>
                     <video src={project.afterVideo} controls className="rounded-lg w-full" />
-                  </div>
+                  </div> */}
                 </>
               ) : (
                 <>
@@ -159,6 +160,13 @@ const ProjectDetail = ({ project, category }: ProjectDetailProps) => {
               )}
             </div>
           </div>
+
+          {project.afterVideo && (
+            <div className="my-4">
+              <h3 className="text-xl font-semibold mb-2">Result Video</h3>
+              <YouTubePlayer videoUrl={project.afterVideo} className="rounded-lg overflow-hidden" />
+            </div>
+          )}
         </div>
       </motion.div>
     </div>

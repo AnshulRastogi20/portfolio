@@ -56,7 +56,7 @@ const Navbar = () => {
               to="/" 
               className="text-2xl font-bold text-primary dark:text-accent hover:text-secondary dark:hover:text-accent/80 transition-colors"
             >
-              Portfolio
+              Anshul's Portfolio
             </Link>
 
             {/* Desktop Menu */}

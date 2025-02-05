@@ -14,7 +14,7 @@ interface Project {
   demoLink: string;
   githubLink?: string;
   projectLink?: string;
-  behanceLink?: string;
+  canvaLink?: string;
 }
 
 interface ProjectsContextType {
@@ -34,10 +34,10 @@ export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
         problem: "A friend of mine needed a basic website for her work",
         solution: "Built a scalable e-commerce solution with modern tech stack, including real-time inventory management and analytics",
         technologies: ["React", "Node.js", "MongoDB", "Redux", "TailwindCSS"],
-        beforeImage: "/placeholder.svg",
+        beforeImage: "/ingens.png",
         afterImage: "/placeholder.svg",
-        demoLink: "#",
-        githubLink: "#"
+        demoLink: "https://ingens-mun.netlify.app/#",
+        githubLink: "https://github.com/AnshulRastogi20/INGENS-MUN"
       },
       {
         title: "DJKC Studios Website",
@@ -48,7 +48,7 @@ export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
         technologies: ["React", "TypeScript", "Framer Motion", "TailwindCSS" , "NextJS"],
         beforeImage: "/placeholder.svg",
         afterImage: "/placeholder.svg",
-        demoLink: "Under Maintainence",
+        demoLink: "#",
         githubLink: "#"
       },
       {
@@ -70,10 +70,10 @@ export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
         problem: "Needed a unique way to showcase skills and projects",
         solution: "Created an interactive portfolio with animations and modern design principles",
         technologies: ["React", "TypeScript", "Framer Motion", "TailwindCSS"],
-        beforeImage: "/placeholder.svg",
+        beforeImage: "/portfolio.png",
         afterImage: "/placeholder.svg",
-        demoLink: "#",
-        githubLink: "#"
+        demoLink: "https://anshulrastogi.me/",
+        githubLink: "https://github.com/AnshulRastogi20/portfolio"
       },
       {
         title: "AMA App",
@@ -82,10 +82,10 @@ export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
         problem: "Needed a way to provide feedback anonymously",
         solution: "Created an Anonymous Messaging App with modern design",
         technologies: ["React", "TypeScript", "TailwindCSS", "NextJS", "MongoDB"],
-        beforeImage: "/placeholder.svg",
+        beforeImage: "/ama.png",
         afterImage: "/placeholder.svg",
-        demoLink: "#",
-        githubLink: "#"
+        demoLink: "",
+        githubLink: "https://github.com/AnshulRastogi20/full-stack-ama-app"
       }
     // ... other web projects
   ];
@@ -95,29 +95,29 @@ export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
       title: "DJKC Channel",
       year: 2025,
       type: "Stories",
-      problem: "Needed a unique and new way to present good stories",
-      solution: "Delivered a new way to present good stories with top notch sound design and editing",
+      problem: "Client needed a unique and new way to present good stories",
+      solution: "Delivered a interesting way to present good stories with top notch sound design and editing",
       technologies: ["DaVinci Resolve", "Adobe Premiere Pro", "After Effects", "Audacity"],
-      beforeVideo: "/placeholder.svg",
-      afterVideo: "/placeholder.svg",
-      demoLink: "#",
-      projectLink: "#"
+      beforeVideo: "https://www.youtube.com/watch?v=TAflLpsZXO0&t=1771s",
+      afterVideo: "",
+      demoLink: "https://www.youtube.com/watch?v=I7knjeTSIls&t=2s",
+      projectLink: "https://www.youtube.com/@djkcstudios"
     },
     // ... other video projects
   ];
 
   const designProjects = [
     {
-      title: "Brand Identity Redesign",
+      title: "Thumnails and Logos",
       year: 2025,
       type: "Branding",
       problem: "Outdated brand identity not resonating with modern audience",
-      solution: "Created a fresh, minimalist design system with versatile applications",
+      solution: "Created fresh, minimalist designs with versatile applications",
       technologies: ["Canva","Adobe Illustrator", "Photoshop", "Figma"],
-      beforeImage: "/placeholder.svg",
+      beforeImage: "/design.png",
       afterImage: "/placeholder.svg",
-      demoLink: "#",
-      behanceLink: "#"
+      demoLink: "https://www.canva.com/design/DAGeNacFzWg/BOb-Mw3kb2zWyMJ1I2k3SA/edit?utm_content=DAGeNacFzWg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+      canvaLink: "https://www.canva.com/design/DAGeNacFzWg/BOb-Mw3kb2zWyMJ1I2k3SA/edit?utm_content=DAGeNacFzWg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
     },
     // ... other design projects
   ];
