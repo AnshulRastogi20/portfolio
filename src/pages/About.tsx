@@ -106,9 +106,13 @@ const About = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className={`absolute w-1/3 ${
-              position === 0 ? 'left-[16.67%]' : position === 1 ? 'left-1/2' : 'left-[83.33%]'
-            } transform -translate-x-1/2`}
+            className={`absolute w-full md:w-1/3 ${
+              position === 0 
+                ? 'md:left-[16.67%]' 
+                : position === 1 
+                  ? 'md:left-1/2' 
+                  : 'md:left-[83.33%]'
+            } transform -translate-x-1/2 left-1/2`}
           >
             {/* Vertical Line */}
             <div className="absolute left-1/2 w-1 h-full bg-primary/30 dark:bg-white/20" />
@@ -131,7 +135,7 @@ const About = () => {
                   {/* Content Card */}
                   <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className="w-64"
+                    className="w-full max-w-[300px] px-4"
                   >
                     <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-white/80 dark:bg-dark-card/80 backdrop-blur-sm border border-primary/10 dark:border-white/10">
                       <div className="flex items-center gap-4 mb-4">
@@ -227,7 +231,7 @@ const About = () => {
 
         <div className="relative min-h-[800px]">
           {/* Main Skills Grid */}
-          <div className="grid grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {mainSkills.map((item, index) => (
               <motion.div
                 key={index}
@@ -253,7 +257,7 @@ const About = () => {
                 {/* Content Card */}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className={`w-64 mt-8 cursor-pointer transition-transform duration-300 ${
+                  className={`w-full max-w-[300px] mt-8 cursor-pointer transition-transform duration-300 ${
                     selectedSkill === item.type ? 'scale-105' : ''
                   }`}
                 >

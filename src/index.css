@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -25,9 +25,9 @@
     --ring: 142 29% 25%;
     --radius: 0.5rem;
   }
- 
+
   .dark {
-    --background: 222 47% 11%;
+    --background: 252 47% 11%;
     --foreground: 210 40% 98%;
     --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
@@ -75,11 +75,11 @@
 
 @keyframes rainbow-bg {
   0% { background: #ff0000; }
-  17% { background: #ff8000; }
+  /* 17% { background: #ff8000; }
   33% { background: #ffff00; }
   50% { background: #00ff00; }
   67% { background: #0000ff; }
-  83% { background: #8000ff; }
+  83% { background: #8000ff; } */
   100% { background: #ff0000; }
 }
 

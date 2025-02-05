@@ -1,18 +1,22 @@
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useBlog } from '@/contexts/BlogContext';
-import BlogDetail from '@/components/BlogDetail';
+import BlogDetail from './BlogDetail';
 
 const BlogDetailWrapper = () => {
-  const { postId } = useParams();
+  const { id } = useParams();
   const { blogPosts } = useBlog();
 
-  const post = blogPosts.find(p => p.id === postId);
-
-  if (!post) {
-    return <Navigate to="/404" replace />;
+  if (!id) {
+    return <div>Post ID not found</div>;
   }
 
-  return <BlogDetail post={post} />;
+  const post = blogPosts.find(p => p.id === id);
+
+  if (!post) {
+    return <div>Post not found</div>;
+  }
+
+  return <BlogDetail postId={id} />;
 };
 
 export default BlogDetailWrapper;

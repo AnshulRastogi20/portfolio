@@ -46,10 +46,10 @@ export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
         problem: "Needed a unique way to showcase the brand and increase its online presence",
         solution: "Created an interactive and modern website with animations and modern design principles",
         technologies: ["React", "TypeScript", "Framer Motion", "TailwindCSS" , "NextJS"],
-        beforeImage: "/placeholder.svg",
+        beforeImage: "/maintenence.png",
         afterImage: "/placeholder.svg",
-        demoLink: "#",
-        githubLink: "#"
+        demoLink: "https://maintenance-iota-ten.vercel.app/",
+        githubLink: ""
       },
       {
         title: "Attendance Tracker Website",
@@ -58,8 +58,8 @@ export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
         problem: "Needed a a way to give track attendance of students in their hands",
         solution: "Created an interactive attendance tracer website with modern design",
         technologies: ["React", "TypeScript", "Framer Motion", "TailwindCSS", "NextJS", "MongoDB"],
-        beforeImage: "/placeholder.svg",
-        afterImage: "/placeholder.svg",
+        beforeImage: "/attendance.png",
+        afterImage: "",
         demoLink: "https://www.attendit.tech/",
         githubLink: "https://github.com/AnshulRastogi20/self-attendence-system"
       },
@@ -84,7 +84,7 @@ export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
         technologies: ["React", "TypeScript", "TailwindCSS", "NextJS", "MongoDB"],
         beforeImage: "/ama.png",
         afterImage: "/placeholder.svg",
-        demoLink: "",
+        demoLink: "https://maintenance-iota-ten.vercel.app/",
         githubLink: "https://github.com/AnshulRastogi20/full-stack-ama-app"
       }
     // ... other web projects

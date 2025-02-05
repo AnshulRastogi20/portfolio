@@ -16,7 +16,7 @@ import GraphicDesign from "./pages/skills/GraphicDesign";
 import { ProjectsProvider } from '@/contexts/ProjectsContext';
 import ProjectDetailWrapper from '@/components/ProjectDetailWrapper';
 import { BlogProvider } from '@/contexts/BlogContext';
-import BlogDetailWrapper from '@/components/BlogDetailWrapper';
+import BlogDetailWrapper from './components/BlogDetailWrapper';
 
 const queryClient = new QueryClient();
 
@@ -35,7 +35,7 @@ const App = () => (
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:postId" element={<BlogDetailWrapper />} />
+              <Route path="/blog/:id" element={<BlogDetailWrapper />} />
               <Route path="/skills/web-development" element={<WebDevelopment />} />
               <Route path="/skills/video-editing" element={<VideoEditing />} />
               <Route path="/skills/graphic-design" element={<GraphicDesign />} />

@@ -21,19 +21,19 @@ export default {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "#2C5530", // Light mode: Forest Green
-          dark: "#1E3720"     // Dark mode: Darker Forest Green
+          dark: "#1A3314"     // Dark mode: Darker Forest Green
         },
         secondary: {
           DEFAULT: "#4A8B54", // Light mode: Lighter Forest Green
-          dark: "#2A5031"     // Dark mode: Darker Secondary Green
+          dark: "#234527"     // Dark mode: Darker Secondary Green
         },
         accent: {
           DEFAULT: "#87BC9C", // Light mode: Soft Green
-          dark: "#3D6B4A"     // Dark mode: Darker Accent Green
+          dark: "#2F5238"     // Dark mode: Darker Accent Green
         },
-        dark: "#000000", // Pure black for dark mode
+        dark: "#0A0A0A", // Even darker black for dark mode
         light: "#F8F9FC", // Light background
-        "dark-card": "#1A1A1A", // Dark mode card background
+        "dark-card": "#121212", // Darker card background
         "light-card": "#FFFFFF", // Light mode card background
       },
       keyframes: {
