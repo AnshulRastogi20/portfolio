@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { LucideIcon } from 'lucide-react';
+import { LucideIcon, Download } from 'lucide-react';
+import { Button } from "../ui/button";
 
 interface MenuItem {
   title: string;
@@ -15,6 +16,11 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ isOpen, menuItems, onClose }: MobileMenuProps) => {
+  const handleResumeClick = () => {
+    window.open("/resume.pdf", "_blank");
+    onClose();
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -39,6 +45,14 @@ const MobileMenu = ({ isOpen, menuItems, onClose }: MobileMenuProps) => {
                 </Link>
               );
             })}
+            <Button
+              variant="ghost"
+              className="flex items-center gap-2 w-full justify-start px-4 py-3 rounded-lg text-primary dark:text-white hover:bg-primary/10 dark:hover:bg-white/10"
+              onClick={handleResumeClick}
+            >
+              <Download size={20} />
+              <span>Resume</span>
+            </Button>
           </div>
         </motion.div>
       )}

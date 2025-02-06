@@ -40,7 +40,7 @@ const Navbar = () => {
   };
 
   const handleResumeClick = () => {
-    window.open("/RESUME.pdf", "_blank");
+    window.open("/cv.pdf", "_blank");
   };
 
   return (
