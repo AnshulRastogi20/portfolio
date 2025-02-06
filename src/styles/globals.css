@@ -1,0 +1,13 @@
+@keyframes rainbow-bg {
+  0% { background: #ff0000; }
+  17% { background: #ff8000; }
+  33% { background: #ffff00; }
+  50% { background: #00ff00; }
+  67% { background: #0000ff; }
+  84% { background: #8000ff; }
+  100% { background: #ff0000; }
+}
+
+.rainbow-animation {
+  animation: rainbow-bg 5s linear;
+} 

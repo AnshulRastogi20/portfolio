@@ -39,18 +39,18 @@ export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
         demoLink: "https://ingens-mun.netlify.app/#",
         githubLink: "https://github.com/AnshulRastogi20/INGENS-MUN"
       },
-      {
-        title: "DJKC Studios Website",
-        year: 2025,
-        type: "Frontend",
-        problem: "Needed a unique way to showcase the brand and increase its online presence",
-        solution: "Created an interactive and modern website with animations and modern design principles",
-        technologies: ["React", "TypeScript", "Framer Motion", "TailwindCSS" , "NextJS"],
-        beforeImage: "/maintenence.png",
-        afterImage: "/placeholder.svg",
-        demoLink: "https://maintenance-iota-ten.vercel.app/",
-        githubLink: ""
-      },
+      // {
+      //   title: "DJKC Studios Website",
+      //   year: 2025,
+      //   type: "Frontend",
+      //   problem: "Needed a unique way to showcase the brand and increase its online presence",
+      //   solution: "Created an interactive and modern website with animations and modern design principles",
+      //   technologies: ["React", "TypeScript", "Framer Motion", "TailwindCSS" , "NextJS"],
+      //   beforeImage: "/maintenence.png",
+      //   afterImage: "/placeholder.svg",
+      //   demoLink: "https://maintenance-iota-ten.vercel.app/",
+      //   githubLink: ""
+      // },
       {
         title: "Attendance Tracker Website",
         year: 2024,

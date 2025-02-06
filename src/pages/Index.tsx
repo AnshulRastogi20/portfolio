@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import About from '../components/About';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import Testimonials from '../components/Testimonials';
@@ -23,7 +22,9 @@ const Index = () => {
     const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      keys.push(e.key);
+      // Convert 'b' and 'a' keys to lowercase for case-insensitive comparison
+      const key = e.key === 'b' || e.key === 'a' ? e.key.toLowerCase() : e.key;
+      keys.push(key);
       keys = keys.slice(-10);
 
       if (JSON.stringify(keys) === JSON.stringify(konamiCode)) {
@@ -33,9 +34,10 @@ const Index = () => {
           duration: 5000,
         });
         
-        document.body.style.animation = "rainbow-bg 5s linear";
+        // Add the rainbow animation class instead of inline style
+        document.body.classList.add('rainbow-animation');
         setTimeout(() => {
-          document.body.style.animation = "";
+          document.body.classList.remove('rainbow-animation');
         }, 5000);
       }
     };

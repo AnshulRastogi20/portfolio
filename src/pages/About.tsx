@@ -78,17 +78,17 @@ const About = () => {
       type: "skill-web"
     },
     {
-      year: "2023",
-      title: "Short Film Edit",
-      company: "Creative Studios",
-      description: "Award-winning short film editing",
+      year: "2025",
+      title: "DJKC Channel",
+      company: "DJKC Studios",
+      description: "Mesmerizing stories",
       type: "skill-video"
     },
     {
       year: "2023",
-      title: "Brand Identity",
-      company: "Design Agency",
-      description: "Complete brand identity package",
+      title: "Thumbnails and Logos",
+      company: "DJKC , Quantum Quest",
+      description: "Complete desgining of logos and thumnails from scratch",
       type: "skill-design"
     }
   ];
@@ -219,72 +219,74 @@ const About = () => {
           </div>
         </motion.div>
 
-        {/* Existing Journey Section */}
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl font-bold text-primary dark:text-white mb-24 text-center"
-        >
-          My Journey
-        </motion.h2>
+        {/* Journey Section - Hidden on mobile */}
+        <div className="hidden md:block">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-5xl font-bold text-primary dark:text-white mb-24 text-center"
+          >
+            My Journey
+          </motion.h2>
 
-        <div className="relative min-h-[800px]">
-          {/* Main Skills Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {mainSkills.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="flex flex-col items-center"
-                onClick={() => {
-                  const baseType = item.type.replace('skill-', '') as "web" | "video" | "design";
-                  setSelectedSkill(selectedSkill === baseType ? null : baseType);
-                }}
-              >
-                {/* Timeline Point */}
-                <div className={`w-4 h-4 rounded-full transition-colors duration-300 ${
-                  selectedSkill === item.type 
-                    ? 'bg-accent dark:bg-accent' 
-                    : 'bg-primary dark:bg-white'
-                }`}>
-                  <div className="absolute w-8 h-8 bg-primary/20 dark:bg-white/20 rounded-full -translate-x-1/2 -translate-y-1/2 animate-pulse" />
-                </div>
-
-                {/* Content Card */}
+          <div className="relative min-h-[800px]">
+            {/* Main Skills Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              {mainSkills.map((item, index) => (
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className={`w-full max-w-[300px] mt-8 cursor-pointer transition-transform duration-300 ${
-                    selectedSkill === item.type ? 'scale-105' : ''
-                  }`}
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center"
+                  onClick={() => {
+                    const baseType = item.type.replace('skill-', '') as "web" | "video" | "design";
+                    setSelectedSkill(selectedSkill === baseType ? null : baseType);
+                  }}
                 >
-                  <Card className={`p-6 hover:shadow-lg transition-all duration-300 backdrop-blur-sm border ${
-                    selectedSkill === item.type
-                      ? 'bg-accent/10 dark:bg-accent/10 border-accent'
-                      : 'bg-white/80 dark:bg-dark-card/80 border-primary/10 dark:border-white/10'
+                  {/* Timeline Point */}
+                  <div className={`w-4 h-4 rounded-full transition-colors duration-300 ${
+                    selectedSkill === item.type 
+                      ? 'bg-accent dark:bg-accent' 
+                      : 'bg-primary dark:bg-white'
                   }`}>
-                    <div className="flex items-center gap-4 mb-4">
-                      <span className="text-2xl font-bold text-primary dark:text-white">{item.year}</span>
-                      <div className="h-8 w-1 bg-primary dark:bg-white/20 rounded-full" />
-                      <div>
-                        <h3 className="text-xl font-semibold text-primary dark:text-white">{item.title}</h3>
-                        <p className="text-gray-600 dark:text-gray-300">{item.company}</p>
-                      </div>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
-                  </Card>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
+                    <div className="absolute w-8 h-8 bg-primary/20 dark:bg-white/20 rounded-full -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+                  </div>
 
-          {/* Skill-specific Graphs */}
-          {renderSkillGraph("web", 0)}
-          {renderSkillGraph("video", 1)}
-          {renderSkillGraph("design", 2)}
+                  {/* Content Card */}
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className={`w-full max-w-[300px] mt-8 cursor-pointer transition-transform duration-300 ${
+                      selectedSkill === item.type ? 'scale-105' : ''
+                    }`}
+                  >
+                    <Card className={`p-6 hover:shadow-lg transition-all duration-300 backdrop-blur-sm border ${
+                      selectedSkill === item.type
+                        ? 'bg-accent/10 dark:bg-accent/10 border-accent'
+                        : 'bg-white/80 dark:bg-dark-card/80 border-primary/10 dark:border-white/10'
+                    }`}>
+                      <div className="flex items-center gap-4 mb-4">
+                        <span className="text-2xl font-bold text-primary dark:text-white">{item.year}</span>
+                        <div className="h-8 w-1 bg-primary dark:bg-white/20 rounded-full" />
+                        <div>
+                          <h3 className="text-xl font-semibold text-primary dark:text-white">{item.title}</h3>
+                          <p className="text-gray-600 dark:text-gray-300">{item.company}</p>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
+                    </Card>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Skill-specific Graphs */}
+            {renderSkillGraph("web", 0)}
+            {renderSkillGraph("video", 1)}
+            {renderSkillGraph("design", 2)}
+          </div>
         </div>
       </motion.div>
     </section>
