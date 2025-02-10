@@ -69,7 +69,7 @@ const Navbar = () => {
                   title={item.title}
                 />
               ))}
-              <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
+              {/* <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} /> */}
               <Button
                 variant="ghost"
                 className="flex items-center gap-2 text-primary dark:text-accent hover:bg-primary/10 dark:hover:bg-accent/10 hover:text-primary dark:hover:text-accent"
