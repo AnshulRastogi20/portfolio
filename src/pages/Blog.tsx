@@ -87,7 +87,7 @@ const Blog = () => {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {new Date(post.date).toLocaleDateString()}
+                        {post.date}
                       </span>
                       <ChevronRight className="text-primary dark:text-white" />
                     </div>

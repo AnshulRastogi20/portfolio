@@ -33,7 +33,7 @@ export const BlogDetail = ({ postId }: BlogDetailProps) => {
           </h1>
           
           <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-300 mb-6">
-            <span>{new Date(post.date).toLocaleDateString()}</span>
+            <span>{post.date}</span>
             <button 
               onClick={() => likeBlogPost(post.id)}
               className={`flex items-center gap-2 px-3 py-1 rounded-full transition-colors duration-200 ${
