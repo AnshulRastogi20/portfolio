@@ -8,6 +8,7 @@ interface BlogPost {
   tags: string[];
   content: string;
   likes: number;
+  mediaFolder?: string; // Optional path to the media folder relative to public directory
 }
 
 interface BlogContextType {
