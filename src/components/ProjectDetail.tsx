@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Video, Palette } from "lucide-react";
+import { ExternalLink, Github, Video, Palette, ChevronLeft, ChevronRight, Play, X, Expand, Minimize } from "lucide-react";
 import YouTubePlayer from './YouTubePlayer';
+import { useState, useEffect, useRef } from 'react';
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 interface ProjectDetailProps {
   project: {
@@ -19,9 +21,158 @@ interface ProjectDetailProps {
     githubLink?: string;
     projectLink?: string;
     canvaLink?: string;
+    id: string;
   };
   category: "web" | "video" | "design";
 }
+
+interface MediaFile {
+  type: 'image' | 'video' | 'youtube';
+  url: string;
+}
+
+const useMediaFiles = (projectId: string, category: string) => {
+  const [mediaFiles, setMediaFiles] = useState<MediaFile[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadMediaFiles = async () => {
+      try {
+        const response = await fetch(`/projects/${category}/${projectId}/index.json`);
+        if (!response.ok) {
+          setMediaFiles([]);
+          return;
+        }
+        
+        const files = await response.json();
+        const mediaFiles: MediaFile[] = files.map((file: string) => ({
+          type: file.includes('youtube.com') ? 'youtube' :
+                file.toLowerCase().endsWith('.mp4') ? 'video' : 'image',
+          url: file.includes('youtube.com') ? file : `/projects/${category}/${projectId}/${file}`
+        }));
+        
+        setMediaFiles(mediaFiles);
+      } catch (error) {
+        console.log(`No media found for project ${projectId}`);
+        setMediaFiles([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadMediaFiles();
+  }, [projectId, category]);
+
+  return { mediaFiles, loading };
+};
+
+const MediaCarousel = ({ projectId, category }: { projectId: string; category: string }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const { mediaFiles, loading } = useMediaFiles(projectId, category);
+  const [showFullscreen, setShowFullscreen] = useState(false);
+
+  if (loading) return <div className="w-full aspect-video animate-pulse bg-gray-200 dark:bg-gray-700 rounded-lg" />;
+  if (mediaFiles.length === 0) return null;
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % mediaFiles.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + mediaFiles.length) % mediaFiles.length);
+  };
+
+  const MediaContent = ({ isFullscreen = false }: { isFullscreen?: boolean }) => (
+    <div className={`relative rounded-lg overflow-hidden ${
+      isFullscreen ? 'w-full h-full' : 'aspect-video max-h-[500px]'
+    }`}>
+      {mediaFiles[currentIndex].type === 'image' ? (
+        <img
+          src={mediaFiles[currentIndex].url}
+          alt={`Project media ${currentIndex + 1}`}
+          className={`w-full h-full ${isFullscreen ? 'object-contain' : 'object-cover object-top'}`}
+          loading="lazy"
+        />
+      ) : mediaFiles[currentIndex].type === 'youtube' ? (
+        <YouTubePlayer 
+          videoUrl={mediaFiles[currentIndex].url} 
+          className="w-full h-full"
+        />
+      ) : (
+        <video
+          src={mediaFiles[currentIndex].url}
+          className={`w-full h-full ${isFullscreen ? 'object-contain' : 'object-cover object-top'}`}
+          controls
+          controlsList="nodownload"
+          playsInline
+        />
+      )}
+
+      {/* Expand button (only show in non-fullscreen mode) */}
+      {!isFullscreen && (
+        <button
+          onClick={() => setShowFullscreen(true)}
+          className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+        >
+          <Expand size={20} />
+        </button>
+      )}
+
+      {mediaFiles.length > 1 && (
+        <>
+          <button
+            onClick={prevSlide}
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+          >
+            <ChevronRight size={24} />
+          </button>
+          
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+            {mediaFiles.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentIndex 
+                    ? 'bg-white' 
+                    : 'bg-white/50 hover:bg-white/75'
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+
+  return (
+    <>
+      {/* Normal view */}
+      <MediaContent />
+
+      {/* Fullscreen modal */}
+      <Dialog open={showFullscreen} onOpenChange={setShowFullscreen}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black border-none">
+          <div className="relative w-full h-[90vh] flex items-center justify-center">
+            <button
+              onClick={() => setShowFullscreen(false)}
+              className="absolute top-4 right-4 z-50 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+            >
+              <X size={24} />
+            </button>
+            <MediaContent isFullscreen />
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
 
 const ProjectDetail = ({ project, category }: ProjectDetailProps) => {
   const getActionButtons = () => {
@@ -89,7 +240,7 @@ const ProjectDetail = ({ project, category }: ProjectDetailProps) => {
         transition={{ duration: 0.5 }}
         className="container mx-auto px-4 py-16 relative z-10"
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="mb-8">
             <h1 className="text-4xl md:text-6xl font-bold text-primary dark:text-white mb-4">
               {project.title}
@@ -100,7 +251,7 @@ const ProjectDetail = ({ project, category }: ProjectDetailProps) => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
+          <div className="grid md:grid-cols-[2fr_3fr] gap-8">
             <div>
               <h2 className="text-2xl font-semibold mb-4 text-primary dark:text-white">Overview</h2>
               <div className="space-y-6">
@@ -134,39 +285,21 @@ const ProjectDetail = ({ project, category }: ProjectDetailProps) => {
               </div>
             </div>
 
-            <div className="space-y-6">
-              {category === 'video' ? (
-                <>
-                  <div>
-                    {/* <h3 className="text-sm text-gray-500 dark:text-gray-400 mb-2">Before</h3> */}
-                    <YouTubePlayer videoUrl={project.beforeVideo} className="rounded-lg overflow-hidden" />
+            <div className="md:sticky md:top-24 h-fit space-y-8">
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <MediaCarousel projectId={project.id} category={category} />
+              </div>
+              
+              {project.afterVideo && (
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Result Video</h3>
+                  <div className="rounded-lg overflow-hidden shadow-lg">
+                    <YouTubePlayer videoUrl={project.afterVideo} />
                   </div>
-                  {/* <div>
-                    <h3 className="text-sm text-gray-500 dark:text-gray-400 mb-2">After</h3>
-                    <video src={project.afterVideo} controls className="rounded-lg w-full" />
-                  </div> */}
-                </>
-              ) : (
-                <>
-                  <div>
-                    {/* <h3 className="text-sm text-gray-500 dark:text-gray-400 mb-2">Before</h3> */}
-                    <img src={project.beforeImage} alt="Before" className="rounded-lg w-full" />
-                  </div>
-                  {/* <div>
-                    <h3 className="text-sm text-gray-500 dark:text-gray-400 mb-2">After</h3>
-                    <img src={project.afterImage} alt="After" className="rounded-lg w-full" />
-                  </div> */}
-                </>
+                </div>
               )}
             </div>
           </div>
-
-          {project.afterVideo && (
-            <div className="my-4">
-              <h3 className="text-xl font-semibold mb-2">Result Video</h3>
-              <YouTubePlayer videoUrl={project.afterVideo} className="rounded-lg overflow-hidden" />
-            </div>
-          )}
         </div>
       </motion.div>
     </div>
