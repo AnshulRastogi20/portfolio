@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Home, User, Mail, Briefcase, BookOpen, Download } from 'lucide-react';
+import { Menu, X, Home, User, Mail, Briefcase, BookOpen, Download, Award } from 'lucide-react';
 import NavLink from './navbar/NavLink';
 import ThemeToggle from './navbar/ThemeToggle';
 import MobileMenu from './navbar/MobileMenu';
@@ -15,6 +15,7 @@ const Navbar = () => {
     { title: 'Home', href: '/', icon: Home },
     { title: 'About', href: '/about', icon: User },
     { title: 'Skills & Projects', href: '/projects', icon: Briefcase },
+    { title: 'Achievements', href: '/achievements', icon: Award },
     { title: 'Blog', href: '/blog', icon: BookOpen },
     { title: 'Contact', href: '/contact', icon: Mail },
   ];

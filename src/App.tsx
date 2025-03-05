@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import WebDevelopment from "./pages/skills/WebDevelopment";
 import VideoEditing from "./pages/skills/VideoEditing";
 import GraphicDesign from "./pages/skills/GraphicDesign";
+import Achievements from "./pages/Achievements";
 import { ProjectsProvider } from '@/contexts/ProjectsContext';
 import ProjectDetailWrapper from '@/components/ProjectDetailWrapper';
 import { BlogProvider } from '@/contexts/BlogContext';
@@ -33,6 +34,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/achievements" element={<Achievements />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogDetailWrapper />} />
