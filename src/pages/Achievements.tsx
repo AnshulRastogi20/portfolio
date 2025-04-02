@@ -53,16 +53,16 @@ const Achievements = () => {
       link: "https://www.coursera.org/account/accomplishments/example",
       tags: ["React", "Frontend", "Web Development"]
     },
-    // {
-    //   id: "award-1",
-    //   title: "First Place - Hackathon 2023",
-    //   issuer: "TechConf",
-    //   date: "October 2023",
-    //   description: "First place winner in the annual hackathon for developing an innovative solution to address accessibility challenges in web applications.",
-    //   image: "/certificates/hackathon.jpg",
-    //   category: "award",
-    //   tags: ["Hackathon", "Innovation", "Accessibility"]
-    // }
+    {
+      id: "krmu",
+      title: "Winners in Hackathon - HackKRMU 4.0",
+      issuer: "KRM University",
+      date: "February 2025",
+      description: "First place winner in the annual hackathon for developing an innovative solution to address accessibility challenges in web applications.",
+      image: "/certificates/hackathon.jpg",
+      category: "award",
+      tags: ["Hackathon", "Innovation", "Accessibility"]
+    }
   ];
   
   const categories = [
