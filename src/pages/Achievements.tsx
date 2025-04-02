@@ -36,22 +36,22 @@ const Achievements = () => {
       title: "Data Structures and Algorithms using Java",
       issuer: "NPTEL",
       date: "July 2024",
-      description: "Certified in JavaScript algorithms and data structures, covering concepts like OOP, functional programming, and algorithmic thinking.",
+      description: "Certified in data structures and algorithms using java, covering concepts like OOP, functional programming, and algorithmic thinking.",
       image: "/certificates/dsa.png", 
       category: "certification",
       link: "https://www.freecodecamp.org/certification/example",
-      tags: ["JavaScript", "Algorithms", "Data Structures"]
+      tags: ["Java", "Algorithms", "Data Structures"]
     },
     {
       id: "java",
       title: "Programming in Java",
       issuer: "NPTEL",
       date: "July 2024",
-      description: "Comprehensive React development certification covering React fundamentals, hooks, state management, and modern application development.",
+      description: "Certified in programming in java, covering concepts like OOP, functional programming, and algorithmic thinking.",
       image: "/certificates/java.png",
       category: "certification",
       link: "https://www.coursera.org/account/accomplishments/example",
-      tags: ["React", "Frontend", "Web Development"]
+      tags: ["Java", "Programming", "OOP"]
     },
     {
       id: "krmu",
