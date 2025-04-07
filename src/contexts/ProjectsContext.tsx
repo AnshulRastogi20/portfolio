@@ -29,6 +29,17 @@ const ProjectsContext = createContext<ProjectsContextType | undefined>(undefined
 export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
   const webProjects = [
     {
+      id: "decentralized-uptime-monitor",
+      title: "Decentralized Uptime Monitor",
+      year: 2025,
+      type: "Full Stack",
+      problem: "Traditional uptime monitoring services are centralized, creating a single point of failure and requiring users to trust that the provider reports status accurately. This model is vulnerable to downtime, censorship, and manipulation, and offers no mechanism to distribute workload or reward external contributors, leaving critical websites—and increasingly decentralized applications—at risk of unnoticed outages and opaque reporting.",
+      solution: "We built a decentralized, incentive-driven uptime monitoring network in which a central Hub assigns HTTP-status check tasks every three minutes to a pool of independent Validators selected at random. Validators receive tasks over WebSockets, perform HTTP requests to determine each site's status (good/bad/unknown), and then claim compensation in Solana (SOL) via on-chain smart contracts—ensuring transparent, immutable payments. The system is implemented in a Turborepo monorepo: the Hub and Validator services are written in Node.js/TypeScript (with Prisma/PostgreSQL for data and Clerk for authentication), the frontend is a Next.js/React app where users register sites, view real-time status dashboards, and validators connect their wallets, and all core logic is shared via common packages. This architecture eliminates single points of failure, fosters trust through randomness and cryptographic incentives, and delivers a resilient, censorship-resistant alternative to centralized uptime monitoring.",
+      technologies: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Clerk", "WebSockets", "Solana", "Turborepo"],
+      demoLink: "https://maintenance-iota-ten.vercel.app/",
+      githubLink: "https://github.com/AnshulRastogi20/Website-Uptime-Check"
+    },    
+    {
       id: "waste-segregator",
       title: "Waste Segregator Website",
       year: 2025,
