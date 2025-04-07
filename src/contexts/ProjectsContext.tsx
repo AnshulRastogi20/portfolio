@@ -29,8 +29,8 @@ const ProjectsContext = createContext<ProjectsContextType | undefined>(undefined
 export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
   const webProjects = [
     {
-      id: "decentralized-uptime-monitor",
-      title: "Decentralized Uptime Monitor",
+      id: "website-uptime-monitor",
+      title: "Decentralized Uptime Monitor Website",
       year: 2025,
       type: "Full Stack",
       problem: "Traditional uptime monitoring services are centralized, creating a single point of failure and requiring users to trust that the provider reports status accurately. This model is vulnerable to downtime, censorship, and manipulation, and offers no mechanism to distribute workload or reward external contributors, leaving critical websites—and increasingly decentralized applications—at risk of unnoticed outages and opaque reporting.",
