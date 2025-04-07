@@ -27,6 +27,9 @@ interface ProjectsContextType {
 const ProjectsContext = createContext<ProjectsContextType | undefined>(undefined);
 
 export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
+
+//id and title should be named differently , not exactly same
+
   const webProjects = [
     {
       id: "website-uptime-monitor",
