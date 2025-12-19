@@ -32,94 +32,107 @@ export const ProjectsProvider = ({ children }: { children: ReactNode }) => {
 
   const webProjects = [
     {
+      id: "socioverse",
+      title: "Socioverse",
+      year: 2026,
+      type: "AI Platform",
+      problem: "Creators and businesses struggle to create high-converting content consistently and convert engagement into leads automatically. Most AI tools copy content literally, missing the psychological nuances that make content viral.",
+      solution: "An advanced Content Intelligence & Automation Platform that uses 'Emotional DNA' extraction to replicate the psychological impact of successful content without copying the topic. Features a 'Heavy Edge' architecture (Supabase Edge Functions), true multimodal analysis (video/audio/text), and a 'Smart Follow Gate' that increases follower conversion by 30-50%.",
+      technologies: ["React 18", "Vite", "TypeScript", "Tailwind CSS", "Supabase", "Edge Functions", "Gemini API", "Bunny CDN"],
+      demoLink: "#", // Launching Jan 2026
+      githubLink: "#",
+      // projectLink: "https://socioverse.ai" // Placeholder if not provided
+    },
+    {
+      id: "up-n-running",
+      title: "Up N Running - OTO SaaS",
+      year: 2025,
+      type: "SaaS Product",
+      problem: "Agencies and SMEs struggle with manual, inconsistent lead generation and operational overhead, trapped in a 'feast or famine' cycle.",
+      solution: "A comprehensive 6-step client acquisition platform built as a multi-tenant SaaS. Features secure 'house' architecture with Row-Level Security, separate n8n execution pipelines, and AI agents for lead scraping, personalized email outreach, intelligent response handling, and automated proposal generation.",
+      technologies: ["Supabase", "PostgreSQL", "n8n", "React", "Row-Level Security", "Google Workspace APIs", "Apollo.io API"],
+      demoLink: "https://upnrunning.in",
+      githubLink: "#"
+    },
+    {
+      id: "appointment-automation",
+      title: "Appointment Automation System",
+      year: 2025,
+      type: "SaaS Product",
+      problem: "Service-based businesses lose revenue due to client no-shows and the administrative burden of manual follow-ups.",
+      solution: "A multi-tenant SaaS for managing appointments with a full analytics frontend. Automates confirmations, reminders, and replies via Email and WhatsApp. Features strict data isolation, secure OAuth 2.0 flow, and a decoupled architecture using n8n for orchestration and Supabase for persistence.",
+      technologies: ["React", "n8n", "Supabase", "PostgreSQL", "WhatsApp Business API", "Google/Microsoft Graph APIs"],
+      demoLink: "#",
+      githubLink: "#"
+    },
+    {
+      id: "instagram-rag",
+      title: "Instagram RAG System",
+      year: 2025,
+      type: "AI Pipeline",
+      problem: "Content creators face the 'blank page problem' and struggle to turn competitor analysis into actionable creative strategy.",
+      solution: "A 5-module n8n pipeline that turns market intelligence into improved content. Uses multimodal AI to reverse-engineer viral videos, a Pinecone vector database for RAG-based context retrieval, and AI agents to generate brand-aligned scripts. Includes an automated 'Approval & Script Generator' workflow via Telegram.",
+      technologies: ["n8n", "Google Gemini 2.5 Flash", "Pinecone", "Telegram API", "Apify"],
+      demoLink: "#",
+      githubLink: "#"
+    },
+    {
+      id: "bunktobrains",
+      title: "BunkToBrains",
+      year: 2024,
+      type: "EdTech Platform",
+      problem: "Traditional academic metrics like CGPA often fail to prepare students for the practical demands of the modern workforce.",
+      solution: "A student-led educational platform focused on real-world skills suitable for careers. Offers workshops, 'Micro-Learnings' on Instagram, and deep tutorials on YouTube. The platform fosters a community for doubt-solving and networking.",
+      technologies: ["YouTube", "Instagram", "WhatsApp", "Community Building", "Content Strategy"],
+      demoLink: "https://www.bunktobrains.com",
+      githubLink: "#"
+    },
+    {
       id: "website-uptime-monitor",
-      title: "Decentralized Uptime Monitor Website",
+      title: "Decentralized Uptime Monitor",
       year: 2025,
       type: "Full Stack",
-      problem: "Traditional uptime monitoring services are centralized, creating a single point of failure and requiring users to trust that the provider reports status accurately. This model is vulnerable to downtime, censorship, and manipulation, and offers no mechanism to distribute workload or reward external contributors, leaving critical websites—and increasingly decentralized applications—at risk of unnoticed outages and opaque reporting.",
-      solution: "We built a decentralized, incentive-driven uptime monitoring network in which a central Hub assigns HTTP-status check tasks every three minutes to a pool of independent Validators selected at random. Validators receive tasks over WebSockets, perform HTTP requests to determine each site's status (good/bad/unknown), and then claim compensation in Solana (SOL) via on-chain smart contracts—ensuring transparent, immutable payments. The system is implemented in a Turborepo monorepo: the Hub and Validator services are written in Node.js/TypeScript (with Prisma/PostgreSQL for data and Clerk for authentication), the frontend is a Next.js/React app where users register sites, view real-time status dashboards, and validators connect their wallets, and all core logic is shared via common packages. This architecture eliminates single points of failure, fosters trust through randomness and cryptographic incentives, and delivers a resilient, censorship-resistant alternative to centralized uptime monitoring.",
-      technologies: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Clerk", "WebSockets", "Solana", "Turborepo"],
+      problem: "Centralized uptime monitoring creates single points of failure and lacks transparency.",
+      solution: "A decentralized, incentive-driven monitoring network. A central Hub assigns tasks to independent Validators via WebSockets. Validators check status and claim rewards in Solana. Built with a Turborepo monorepo architecture.",
+      technologies: ["Next.js", "TypeScript", "Node.js", "Prisma", "Clerk", "WebSockets", "Solana", "Turborepo"],
       demoLink: "https://maintenance-iota-ten.vercel.app/",
       githubLink: "https://github.com/AnshulRastogi20/Website-Uptime-Check"
-    },    
+    },
     {
       id: "waste-segregator",
-      title: "Waste Segregator Website",
+      title: "Waste Segregator",
       year: 2025,
       type: "Full Stack",
-      problem: "Landfills impacting sustainability and degrading air quality",
-      solution: "Created an very simple website to segregate waste and mark them with different colours",
-      technologies: ["React", "TypeScript","Flask","TensorFlow", "TailwindCSS", "MongoDB"],
+      problem: "Inefficient waste segregation practices impact sustainability.",
+      solution: "A website using TensorFlow to identify and segregate waste types, promoting better recycling habits.",
+      technologies: ["React", "TypeScript", "Flask", "TensorFlow", "TailwindCSS", "MongoDB"],
       demoLink: "https://recyclopedia-xi.vercel.app/",
       githubLink: "https://github.com/AnshulRastogi20/waste-segregator"
     },
     {
       id: "attendance-tracker",
-      title: "Attendance Tracker Website",
+      title: "Attendance Tracker",
       year: 2024,
       type: "Full Stack",
-      problem: "Needed a a way to give track attendance of students in their hands",
-      solution: "Created an interactive attendance tracer website with modern design",
+      problem: "Students lack easy access to track their own attendance records.",
+      solution: "An interactive attendance tracking system with a modern design.",
       technologies: ["React", "TypeScript", "Framer Motion", "TailwindCSS", "NextJS", "MongoDB"],
-
       demoLink: "https://www.attendit.tech/",
       githubLink: "https://github.com/AnshulRastogi20/self-attendence-system"
-    },
-    {
-      id: "portfolio",
-      title: "Portfolio Website",
-      year: 2025,
-      type: "Frontend",
-      problem: "Needed a unique way to showcase skills and projects",
-      solution: "Created an interactive portfolio with animations and modern design principles",
-      technologies: ["React", "TypeScript", "Framer Motion", "TailwindCSS"],
-      beforeImage: "/portfolio.png",
-      afterImage: "/placeholder.svg",
-      demoLink: "https://anshulrastogi.me/",
-      githubLink: "https://github.com/AnshulRastogi20/portfolio"
     },
     {
       id: "ama-app",
       title: "AMA App",
       year: 2024,
       type: "Full Stack",
-      problem: "Needed a way to provide feedback anonymously",
-      solution: "Created an Anonymous Messaging App with modern design",
+      problem: "Difficulty in collecting honest, anonymous feedback.",
+      solution: "An Anonymous Messaging App allowing users to send and receive anonymous feedback.",
       technologies: ["React", "TypeScript", "TailwindCSS", "NextJS", "MongoDB"],
       beforeImage: "/ama.png",
       afterImage: "/placeholder.svg",
       demoLink: "https://maintenance-iota-ten.vercel.app/",
       githubLink: "https://github.com/AnshulRastogi20/full-stack-ama-app"
-    },
-    {
-      id: "ingens-mun",
-      title: "INGENS MUN",
-      year: 2021,
-      type: "Basicest",
-      problem: "A friend of mine needed a basic website for her work",
-      solution: "Built a scalable e-commerce solution with modern tech stack, including real-time inventory management and analytics",
-      technologies: ["React", "Node.js", "MongoDB", "Redux", "TailwindCSS"],
-      beforeImage: "/ingens.png",
-      afterImage: "/placeholder.svg",
-      demoLink: "https://ingens-mun.netlify.app/#",
-      githubLink: "https://github.com/AnshulRastogi20/INGENS-MUN"
     }
-    // {
-      //   title: "DJKC Studios Website",
-      //   year: 2025,
-      //   type: "Frontend",
-      //   problem: "Needed a unique way to showcase the brand and increase its online presence",
-      //   solution: "Created an interactive and modern website with animations and modern design principles",
-      //   technologies: ["React", "TypeScript", "Framer Motion", "TailwindCSS" , "NextJS"],
-      //   beforeImage: "/maintenence.png",
-      //   afterImage: "/placeholder.svg",
-      //   demoLink: "https://maintenance-iota-ten.vercel.app/",
-      //   githubLink: ""
-      // }
-      
-    
-    
-    
   ];
 
   const videoProjects = [

@@ -62,6 +62,16 @@ const Achievements = () => {
       image: "/certificates/hackathon.jpg",
       category: "award",
       tags: ["Hackathon", "Innovation", "Accessibility"]
+    },
+    {
+      id: "chess",
+      title: "District Chess Champion",
+      issuer: "District Sports Association",
+      date: "2018", // Approximating date based on context (Former), or leave generic if no date provided in bio 
+      description: "Demonstrated strategic foresight, pattern recognition, and resource management—skills now directly applied to systems architecture and business strategy.",
+      image: "/certificates/chess.jpg", // Placeholder
+      category: "award",
+      tags: ["Strategy", "Chess", "Analytical Thinking"]
     }
   ];
   

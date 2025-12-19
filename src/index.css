@@ -4,97 +4,115 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 142 29% 25%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 263 90% 65%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 143 31% 42%;
+    --secondary: 190 100% 50%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 143 31% 63%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 142 29% 25%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 320 100% 55%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 263 90% 65%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 252 47% 11%;
+    --background: 260 50% 5%;
     --foreground: 210 40% 98%;
-    --card: 222 47% 11%;
+    --card: 260 50% 5%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 11%;
+    --popover: 260 50% 5%;
     --popover-foreground: 210 40% 98%;
-    --primary: 142 35% 25%;
+    --primary: 263 90% 70%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 143 30% 30%;
+    --secondary: 190 100% 60%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 143 25% 35%;
+    --muted: 260 30% 15%;
+    --muted-foreground: 260 20% 75%;
+    --accent: 320 100% 65%;
     --accent-foreground: 210 40% 98%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 142 30% 30%;
+    --border: 260 30% 20%;
+    --input: 260 30% 20%;
+    --ring: 263 90% 70%;
+  }
+
+  body {
+    @apply font-sans bg-background text-foreground selection:bg-primary/30 selection:text-white;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    @apply tracking-tight;
   }
 }
 
 @layer components {
   .btn-3d {
-    @apply relative overflow-hidden transition-all duration-300 
-           before:absolute before:inset-0 
-           before:bg-gradient-to-r before:from-white/20 before:to-transparent 
-           before:transition-all before:duration-300
-           hover:before:opacity-0 
-           active:transform active:scale-95
-           shadow-[0_4px_0_0_rgba(0,0,0,0.2)]
-           active:shadow-[0_2px_0_0_rgba(0,0,0,0.2)]
-           active:translate-y-[2px];
+    @apply relative overflow-hidden transition-all duration-300 before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:transition-all before:duration-300 hover:before:opacity-0 active:transform active:scale-95 active:translate-y-[2px];
   }
 
   .button-gradient {
-    @apply relative overflow-hidden
-           bg-gradient-to-br from-primary to-secondary
-           dark:from-primary dark:to-secondary
-           hover:from-secondary hover:to-primary
-           dark:hover:from-secondary dark:hover:to-primary
-           transition-all duration-300
-           transform hover:-translate-y-1 hover:shadow-lg;
+    @apply relative overflow-hidden bg-gradient-to-br from-primary to-secondary dark:from-primary dark:to-secondary hover:from-secondary hover:to-primary dark:hover:from-secondary dark:hover:to-primary transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg;
   }
 }
 
 @keyframes rainbow-bg {
-  0% { background: #ff0000; }
-  /* 17% { background: #ff8000; }
-  33% { background: #ffff00; }
-  50% { background: #00ff00; }
-  67% { background: #0000ff; }
-  83% { background: #8000ff; } */
-  100% { background: #ff0000; }
+  0% {
+    background: #ff0000;
+  }
+
+  100% {
+    background: #ff0000;
+  }
 }
 
 .glass {
-  @apply bg-white/10 backdrop-blur-lg border border-white/20 
-         dark:bg-dark/30 dark:border-primary/20;
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 dark:bg-black/40 dark:border-white/5 hover:border-primary/50 transition-all duration-300;
+}
+
+.glass-premium {
+  @apply bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-2xl border border-white/10 shadow-xl dark:from-white/5 dark:to-transparent;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+}
+
+.neon-border {
+  @apply border border-primary/50;
+}
+
+.neon-text {
+  @apply text-white;
+}
+
+/* Gradient Mesh Background Utility */
+.bg-cyber-grid {
+  background-size: 50px 50px;
+  background-image: linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
 }
 
 .card-gradient {
   @apply bg-gradient-to-br from-light to-white dark:from-dark dark:to-dark-card;
-}
-
-.text-gradient {
-  @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent 
-         dark:from-primary dark:via-secondary dark:to-accent;
 }
 
 .hover-scale {

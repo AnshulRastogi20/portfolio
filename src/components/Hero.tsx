@@ -3,8 +3,9 @@ import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-light to-white dark:from-dark dark:to-dark/50">
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background bg-cyber-grid">
+      {/* <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" /> */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] -z-10" />
       
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -22,11 +23,11 @@ const Hero = () => {
             sequence={[
               "Hi, I'm Anshul Rastogi",
               1000,
-              "I'm a Web Developer",
+              "I'm a Systems Architect",
               1000,
-              "I'm a Video Editor",
+              "I Build AI Automation Systems",
               1000,
-              "I'm a Graphic Designer",
+              "I Create Productized Services",
               1000,
             ]}
             wrapper="h1"
@@ -42,7 +43,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          Building Amazing Experiences
+          Architecting Intelligent Systems
         </motion.h2>
         
         <motion.div
